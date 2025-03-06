@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - El Cuarto de Sara</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="assets/logo.jpg" alt="Logo">
+    </div>
+    <h1>Servicios de El Cuarto de Sara</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section id="servicios">
+        <h1>Nuestros Servicios</h1>
+        <div class="servicio">
+            <h2>?? Personalización de Amigurumis</h2>
+            <p>Personaliza tus amigurumis con colores, tamaños y nombres bordados.</p>
+        </div>
+        <div class="servicio">
+            <h2>?? Pedidos Especiales</h2>
+            <p>Amigurumis temáticos para eventos especiales.</p>
+        </div>
+        <div class="servicio">
+            <h2>?? Talleres de Tejido</h2>
+            <p>Clases personalizadas para aprender a tejer amigurumis.</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Fecha y Hora: <span id="fecha-hora"></span></p>
+    <p>Visitas: <span id="contador-visitas"></span></p>
+    <p>&copy; 2025 El Cuarto de Sara</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    function actualizarFechaHora() {
+        const ahora = new Date();
+        document.getElementById('fecha-hora').textContent = ahora.toLocaleString('es-ES');
+    }
+    setInterval(actualizarFechaHora, 1000);
+    actualizarFechaHora();
+
+    function actualizarVisitas() {
+        let visitas = localStorage.getItem('visitas_servicios') ? parseInt(localStorage.getItem('visitas_servicios')) : 0;
+        visitas++;
+        localStorage.setItem('visitas_servicios', visitas);
+        document.getElementById('contador-visitas').textContent = visitas;
+    }
+    actualizarVisitas();
+</script>
+</body>
+</html>
